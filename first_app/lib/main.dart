@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,18 +19,37 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: const Text('First App'),
         ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              Text(
-                'Hello World!',
-              ),
-              Text(
-                'It\'s time to learn Flutter!',
-              ),
-            ],
-          ),
+        backgroundColor: Color.fromARGB(255, 0, 208, 255),
+        body: const GradientContainer(),
+      ),
+    );
+  }
+}
+
+class GradientContainer extends StatelessWidget {
+  const GradientContainer({super.key});
+  @override
+  Widget build(context) {
+    return Container(
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(colors: [
+          Color.fromARGB(255, 0, 21, 139),
+          Color.fromARGB(255, 0, 121, 213)
+        ], begin: Alignment.topLeft, end: Alignment.bottomRight),
+      ),
+      child: const Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Hello Hilal!',
+              style: TextStyle(color: Colors.white, fontSize: 20.0),
+            ),
+            Text(
+              'It\'s time to learn Flutter!',
+              style: TextStyle(color: Colors.white, fontSize: 28.0),
+            ),
+          ],
         ),
       ),
     );
